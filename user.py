@@ -44,33 +44,39 @@ class User:
             name : name of the credential
 
         Returns:
-            Boolean : true/false depending if the credential exists
+            Boolean : True / False if the credential exists or does not exist
+            Credential : if the credential exists
+            False: if the credential does not exist
         '''
 
         # Search for the user in the user list
         for credential in Credential.credential_list:
             if credential.credential_name == name:
-                return True 
+                return Credential
 
         return False
 
-    # @classmethod
-    # def log_in(cls, name, password):
-    #     '''
-    #     Method that allows a user to log into their credential
+    @classmethod
+    def log_in(cls, name, password):
+        '''
+        Method that allows a user to log into their credential
 
-    #     Args:
-    #         name : name of the user
-    #         password : password for the user
+        Args:
+            name : name of the user
+            password : password for the user
 
-    #     Returns:
-    #         Credentials of the user that matches the name and password
-    #     '''
+        Returns:
+            Credential list for the user that matches the name and password
+            False: if the name or password is incorrect
+        '''
 
-    #     # Search for the user in the user list
-    #     for user in cls.user_list:
-    #         if user.user_name == name and user.user_password == password:
-    #             return Credential.credential_list
+        # Search for the user in the user list
+        for user in cls.user_list:
+            if user.user_name == name and user.user_password == password:
+                return Credential.credential_list
+
+        return False
+
 
 
 
