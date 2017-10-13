@@ -136,7 +136,6 @@ Use these short codes to get around''')
         short_code = input().lower()
 
         if short_code == 'cu':
-
             '''
             Creating a Password Locker account
             '''
@@ -162,14 +161,15 @@ Use these short codes to get around''')
             '''
             Display the names of the current users 
             '''
+
             if display_users():
                 print("\n")
                 print("Here are the current users of Password Locker")
-                print("\n")
+                print("-"*10)
 
                 for user in display_users():
                     print(f"{user.user_name}")
-                    print("\n")
+                    print("-"*10)
             else:
                 print("\n")
                 print("Password Locker has no current user.\n    Be the first user :)")
@@ -193,7 +193,7 @@ Use these short codes to get around''')
             else:
 
                 user_log_in(user_name,user_password)
-                print(f'''{user_name} welcome to your credentials\n
+                print(f'''{user_name} welcome to your Credentials\n
                 Use these short codes to get around''')
 
                 while True:
@@ -202,15 +202,14 @@ Use these short codes to get around''')
                     '''
                     print('''  Short codes:
         cc - add a credential \n
-        du - display names of current Password Locker users \n
-        lg - log into your Password Locker account \n
-        ex - exit the Password Locker account''')
+        dc - display credentials \n
+        cg - create a credential with a generate password \n
+        ex - exit Credentials''')
 
                     # Get short code from the user
                     short_code = input().lower()
 
                     if short_code == 'cc':
-
                         '''
                         Creating a Credential
                         '''
@@ -232,10 +231,32 @@ Use these short codes to get around''')
                         print(f"{user_name} welcome to Password Locker")
                         print("\n")
 
+                    elif short_code == 'dc':
+                        '''
+                        Displaying credential name and password
+                        '''
+                        if display_credentials():
+                            print("\n")
+                            print(f"Here are your credentials")
+                            print("-"*10)
+
+                            for credential in display_credentials():
+                                print(f"Account ..... {credential.credential_name}")
+                                print(f"Password .... {credential.credential_password}")
+                                print("-"*10)
+                                
+                        else:
+                            print("\n")
+                            print("You have no credentials")
+
 
                     elif short_code == 'ex':
                         print(f"See you later {user_name}")
                         break
+
+                    else:
+                        print(f'''{short_code} does not compute.
+    Please use the short codes''')
 
         elif short_code == 'ex':
             '''
@@ -247,7 +268,8 @@ Use these short codes to get around''')
             break
 
         else:
-            print("Come again. Please use the short codes")
+            print(f'''Come again, what's {short_code}?
+    Please use the short codes''')
 
 if __name__ == '__main__':
     main()
