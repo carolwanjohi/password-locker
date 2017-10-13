@@ -3,7 +3,7 @@ Credential Module by Carol Wanjohi
 
 Import random and string modules from Python for generating passwords
 '''
-import random
+from random import choice
 import string
 
 '''
@@ -35,3 +35,22 @@ class Credential:
         Method that saves a user's credentials to credential list
         '''
         Credential.credential_list.append(self)
+
+    @classmethod
+    def generate_password(cls):
+        '''
+        Method that generates a random alphanumeric password
+        '''
+        # Length of the generated password
+        size = 8
+
+        # Generate random alphanumeric 
+        alphanum = string.ascii_uppercase + string.digits + string.ascii_lowercase
+
+        # Create password
+        password = ''.join( choice(alphanum) for num in range(size) )
+        print(password)
+        return password
+
+
+
