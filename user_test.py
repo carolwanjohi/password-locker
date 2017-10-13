@@ -6,6 +6,8 @@ import User Module to be tested
 '''
 import unittest
 from user import User
+from credential import Credential
+
 
 class TestUser(unittest.TestCase):
     '''
@@ -22,6 +24,7 @@ class TestUser(unittest.TestCase):
 
         # Create user object
         self.new_user = User("John","doe")
+
 
     def tearDown(self):
         '''
@@ -62,16 +65,36 @@ class TestUser(unittest.TestCase):
 
         self.assertEqual( len(User.user_list), 2)
 
-    # def test_log_in(self):
-    #     '''
-    #     Test case to test if a user can log into their credentials
-    #     '''
-    #     # Save the new user
-    #     self.new_user.save_user()
+    def test_find_credential(self):
+        '''
+        Test case to test if the User module is importing from Credential module
+        '''
 
-    #     found_credential = self.new_user.log_in("John", "doe")
+        # Save the new user
+        self.new_user.save_user()
 
-    #     self.assertEqual( found_credential,  )
+        test_user = User("Jane","doey")
+
+        test_user.save_user()
+
+        found_credential = User.find_credential("Yahoo")
+
+        self.assertEqual( found_credential, False )
+
+    def test_log_in(self):
+        '''
+        Test case to test if a user can log into their credentials
+        '''
+        # Save the new user
+        self.new_user.save_user()
+
+        test_user = User("Jane","doey")
+
+        test_user.save_user()
+
+        found_credential = User.log_in("Jane", "doey")
+
+        self.assertEqual( found_credential, Credential.credential_list )
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)
