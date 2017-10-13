@@ -95,7 +95,7 @@ class TestUser(unittest.TestCase):
 
         found_credential = User.log_in("Jane", "doey")
 
-        self.assertEqual( found_credential, True )   
+        self.assertEqual( found_credential,  Credential.credential_list )   
     
     def test_display_user(self):
         '''

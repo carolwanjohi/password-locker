@@ -71,7 +71,7 @@ class User:
         # Search for the user in the user list
         for user in cls.user_list:
             if user.user_name == name and user.user_password == password:
-                return True
+                return Credential.credential_list
 
         return False
 

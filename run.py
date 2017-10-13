@@ -49,8 +49,9 @@ def user_log_in(name, password):
         name : the name the user used to create their user account
         password : the password the user used to create their user account
     '''
-
-    return User.log_in(name, password)
+    log_in = User.log_in(name, password)
+    if log_in != False:
+        return User.log_in(name, password)
 
 def display_users():
     '''
@@ -68,7 +69,7 @@ def create_credentail(name, password):
         password : the password for the account
     '''
 
-    new_credentail = Credential(user_name,user_password)
+    new_credentail = Credential(name,password)
 
     return new_credentail
 
@@ -80,7 +81,7 @@ def save_credentials(credential):
         credential : the credential to be saved
     '''
 
-    user.save_user()
+    credential.save_credential()
 
 def check_existing_credentials(name):
     '''
@@ -121,6 +122,9 @@ def main():
 Use these short codes to get around''')
 
     while True:
+        '''
+        Loop that is running the entire application
+        '''
 
         print('''   Short codes:
         cu - create a Password Locker account \n
@@ -137,6 +141,7 @@ Use these short codes to get around''')
             Creating a Password Locker account
             '''
 
+            print("\n")
             print("New Password Locker Account")
             print("-"*10)
 
@@ -158,6 +163,7 @@ Use these short codes to get around''')
             Display the names of the current users 
             '''
             if display_users():
+                print("\n")
                 print("Here are the current users of Password Locker")
                 print("\n")
 
@@ -169,11 +175,73 @@ Use these short codes to get around''')
                 print("Password Locker has no current user.\n    Be the first user :)")
                 print("\n")
 
+        elif short_code == 'lg':
+            '''
+            Logs in the user into their Password Locker account
+            '''
+            print("\n")
+            print("Log into Password Locker Account")
+            print("Enter the user name")
+            user_name = input()
+
+            print("Enter the password")
+            user_password = input()
+
+            if user_log_in(user_name,user_password) == None:
+                print("Please try again or create an account")
+
+            else:
+
+                user_log_in(user_name,user_password)
+                print(f'''{user_name} welcome to your credentials\n
+                Use these short codes to get around''')
+
+                while True:
+                    '''
+                    Loop to run functions after logging in
+                    '''
+                    print('''  Short codes:
+        cc - add a credential \n
+        du - display names of current Password Locker users \n
+        lg - log into your Password Locker account \n
+        ex - exit the Password Locker account''')
+
+                    # Get short code from the user
+                    short_code = input().lower()
+
+                    if short_code == 'cc':
+
+                        '''
+                        Creating a Credential
+                        '''
+
+                        print("\n")
+                        print("New Credential")
+                        print("-"*10)
+
+                        print("Name of the credential ...")
+                        credential_name = input()
+
+                        print("Password of the credential ...")
+                        credential_password = input()
+
+                        # Create and save new user
+                        save_credentials( create_credentail( credential_name, credential_password) )
+
+                        print("\n")
+                        print(f"{user_name} welcome to Password Locker")
+                        print("\n")
+
+
+                    elif short_code == 'ex':
+                        print(f"See you later {user_name}")
+                        break
+
         elif short_code == 'ex':
             '''
             Exit Password Locker
             '''
-
+            print("\n")
             print("Bye .....")
 
             break
