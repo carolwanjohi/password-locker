@@ -73,12 +73,30 @@ class TestCredential(unittest.TestCase):
         
     
     def test_display_credential(self):
-        
         '''
-        Mehtod that returns a list of all credentials saved
+        Test case to test if a user can see a list of all the credentials saved
         '''
         
         self.assertEqual( Credential.display_credential() , Credential.credential_list )
+        
+    def test_credential_exist(self):
+        
+        '''
+        Test to check if we can return a boolean if we can't find the credential
+        '''
+
+        # Save the new credential
+        self.new_credential.save_credential()
+
+        test_credential = Credential("Facebook","facebook17")
+
+        test_credential.save_credential()
+        
+        # use contact exist method
+        credential_exists = Credential.credential_exist("Facebook")
+        
+        self.assertTrue(credential_exists)
+
         
 
 
