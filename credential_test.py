@@ -71,6 +71,15 @@ class TestCredential(unittest.TestCase):
 
         self.assertEqual( len(generated_password), 8 )
         
+    
+    def test_display_credential(self):
+        
+        '''
+        Mehtod that returns a list of all credentials saved
+        '''
+        
+        self.assertEqual( Credential.display_credential() , Credential.credential_list )
+        
 
 
 
