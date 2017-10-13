@@ -95,10 +95,7 @@ class TestCredential(unittest.TestCase):
         credential_exists = Credential.credential_exist("Facebook")
         
         self.assertTrue(credential_exists)
-
         
-
-
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)

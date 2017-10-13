@@ -64,10 +64,10 @@ class Credential:
     def credential_exist(cls, name):
         
         '''
-        Method that checks if a credential exists from the credential list
+        Method that checks if a credential exists in the credential list
         
         Args:
-            number: phone number to search if it exists
+            name: name of the credential to search
             
         Returns:
             Boolean: true/false depending if the contact exists
