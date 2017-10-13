@@ -49,8 +49,19 @@ class Credential:
 
         # Create password
         password = ''.join( choice(alphanum) for num in range(size) )
-        print(password)
+        
         return password
+
+    @classmethod
+    def display_credential(cls):
+        '''
+        Method that returns the credential list
+        '''
+        
+        return cls.credential_list
+
+
+
 
 
 
