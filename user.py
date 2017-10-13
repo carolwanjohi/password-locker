@@ -80,10 +80,30 @@ class User:
     @classmethod
     def display_user(cls):
         '''
-        Method that returns the credential list
+        Method that returns the user list
         '''
         
         return cls.user_list
+    
+    @classmethod
+    def user_exist(cls, name):
+        
+        '''
+        Method that checks if a user exists in the user list
+        
+        Args:
+            name: name of the user to search
+            
+        Returns:
+            Boolean: true/false depending if the user exists
+            
+        '''
+        
+        for user in cls.user_list:
+            if user.user_name == name:
+                return True
+            
+        return False
 
 
 
