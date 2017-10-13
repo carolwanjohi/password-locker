@@ -62,16 +62,14 @@ class TestCredential(unittest.TestCase):
 
         self.assertEqual( len(Credential.credential_list), 2)
 
-    # def test_log_in(self):
-    #     '''
-    #     Test case to test if a user can log into their credentials
-    #     '''
-    #     # Save the new credential
-    #     self.new_credential.save_credential()
+    def test_generate_password(self):
+        '''
+        Test case to test if a user can log into their credentials
+        '''
+        
+        generated_password = self.new_credential.generate_password()
 
-    #     found_credential = self.new_credential.log_in("John", "doe")
-
-    #     self.assertEqual( found_credential.credential_name, "Yahoo" )
+        self.assertEqual( len(generated_password), 8 )
         
 
 
