@@ -69,8 +69,7 @@ class TestCredential(unittest.TestCase):
         
         generated_password = self.new_credential.generate_password()
 
-        self.assertEqual( len(generated_password), 8 )
-        
+        self.assertEqual( len(generated_password), 8 )   
     
     def test_display_credential(self):
         '''
