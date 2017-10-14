@@ -60,7 +60,7 @@ def display_users():
 
     return User.display_user()
 
-def create_credentail(name, password):
+def create_credentail(user_name, name, password):
     '''
     Function to create a credential 
 
@@ -69,7 +69,7 @@ def create_credentail(name, password):
         password : the password for the account
     '''
 
-    new_credentail = Credential(name,password)
+    new_credentail = Credential(user_name,name,password)
 
     return new_credentail
 
@@ -93,12 +93,12 @@ def check_existing_credentials(name):
 
     return Credential.credential_exist(name)
 
-def display_credentials():
+def display_credentials(name):
     '''
     Function that returns all the saved credentials
     '''
 
-    return Credential.display_credential()
+    return Credential.display_credential(name)
 
 def create_generated_password(name):
     '''
@@ -109,9 +109,7 @@ def create_generated_password(name):
     '''
     password = Credential.generate_password()
 
-    new_credentail = Credential(name, password)
-
-    return new_credentail
+    return password
 
 def main():
     '''
@@ -228,7 +226,7 @@ Use these short codes to get around''')
                         credential_password = input()
 
                         # Create and save new user
-                        save_credentials( create_credentail( credential_name, credential_password) )
+                        save_credentials( create_credentail( user_name, credential_name, credential_password) )
 
                         print("\n")
                         print(f"Credentials for {credential_name} have been created and saved")
@@ -238,12 +236,13 @@ Use these short codes to get around''')
                         '''
                         Displaying credential name and password
                         '''
-                        if display_credentials():
+
+                        if display_credentials(user_name):
                             print("\n")
-                            print(f"Here are your credentials")
+                            print(f"{user_name}\'s credentials")
                             print("-"*10)
 
-                            for credential in display_credentials():
+                            for credential in display_credentials(user_name):
                                 print(f"Account ..... {credential.credential_name}")
                                 print(f"Password .... {credential.credential_password}")
                                 print("-"*10)
@@ -266,7 +265,7 @@ Use these short codes to get around''')
                         credential_name = input()
 
                         # Save new credential with its generated password
-                        save_credentials( create_generated_password(credential_name) )
+                        save_credentials( Credential(user_name, credential_name, (create_generated_password(credential_name)) ) )
                         print("\n")
                         print(f"Credentials for {credential_name} have been created and saved")
                         print("\n")
