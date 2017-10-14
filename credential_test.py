@@ -21,7 +21,7 @@ class TestCredential(unittest.TestCase):
         '''
 
         # Create credential object
-        self.new_credential = Credential("Yahoo","yahoo17")
+        self.new_credential = Credential("Jane","Yahoo","yahoo17")
 
     def tearDown(self):
         '''
@@ -34,7 +34,7 @@ class TestCredential(unittest.TestCase):
         '''
         Test case to test if the object is initialised properly
         '''
-
+        self.assertEqual( self.new_credential.user_name, "Jane")
         self.assertEqual( self.new_credential.credential_name, "Yahoo" )
         self.assertEqual( self.new_credential.credential_password, "yahoo17" )
 
@@ -56,7 +56,7 @@ class TestCredential(unittest.TestCase):
         # Save the new credential
         self.new_credential.save_credential()
 
-        test_credential = Credential("Facebook","facebook17")
+        test_credential = Credential("Joe","Facebook","facebook17")
 
         test_credential.save_credential()
 
@@ -87,7 +87,7 @@ class TestCredential(unittest.TestCase):
         # Save the new credential
         self.new_credential.save_credential()
 
-        test_credential = Credential("Facebook","facebook17")
+        test_credential = Credential("Joe","Facebook","facebook17")
 
         test_credential.save_credential()
         
