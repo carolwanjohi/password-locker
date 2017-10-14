@@ -75,8 +75,19 @@ class TestCredential(unittest.TestCase):
         '''
         Test case to test if a user can see a list of all the credentials saved
         '''
+
+        # Save the new credential
+        self.new_credential.save_credential()
+
+        test_credential = Credential("Joe","Facebook","facebook17")
+
+        test_credential.save_credential()
+
+        test_credential = Credential("Joe","Yahoo","yahoo17")
+
+        test_credential.save_credential()
         
-        self.assertEqual( Credential.display_credential() , Credential.credential_list )
+        self.assertEqual( len(Credential.display_credential("Joe")) , 2 )
         
     def test_credential_exist(self):
         
