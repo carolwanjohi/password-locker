@@ -56,12 +56,20 @@ class Credential:
         return password
 
     @classmethod
-    def display_credential(cls):
+    def display_credential(cls,name):
         '''
         Method that returns the credential list
+
+        Args:
+            name : the user name
         '''
-        
-        return cls.credential_list
+        user_credential_list = []
+
+        for credential in cls.credential_list:
+            if credential.user_name == name:
+                user_credential_list.append(credential)
+
+        return user_credential_list
     
     @classmethod
     def credential_exist(cls, name):
