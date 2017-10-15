@@ -4,7 +4,7 @@
 ## By **[Carol Wanjohi](https://github.com/carolwanjohi)**
 
 ## Description
-This is a Python application that allows a user to generate and store passwords for various accounts. The application runs on the terminal and the user navigates through the app by using short codes.
+This is a Python application that allows a user to generate and store passwords for various accounts. The application runs on the terminal and the user navigates through the app by using short codes. <br/>
 The short codes are:
 * cu - create Password Locker account
 * du - display the names of the current Password Locker users
