@@ -20,16 +20,16 @@ class Credential:
     # Empty list of credentials
     credential_list = []
 
-    def __init__(self, user_name, credential_name, credential_password):
+    def __init__(self, user_password, credential_name, credential_password):
         '''
         __init__ method to define the properties of a User object
 
         Args:
-            user_name : name of the user
+            user_password : password of the user
             credential_name : name of an account
             credential_password : password for the account
         '''
-        self.user_name = user_name
+        self.user_password = user_password
         self.credential_name = credential_name
         self.credential_password = credential_password
 
@@ -56,17 +56,17 @@ class Credential:
         return password
 
     @classmethod
-    def display_credential(cls,name):
+    def display_credential(cls,password):
         '''
         Method that returns the credential list
 
         Args:
-            name : the user name
+            password : the user password
         '''
         user_credential_list = []
 
         for credential in cls.credential_list:
-            if credential.user_name == name:
+            if credential.user_password == password:
                 user_credential_list.append(credential)
 
         return user_credential_list
