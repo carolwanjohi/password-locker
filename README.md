@@ -10,17 +10,29 @@ This is a Python application that allows a user to generate and store passwords 
 As a user I would like:
 * To create an account with my details - log in and password
 * Store my existing login credentials
-* Generate a password for a new credential/account
+* Generate a password for a new credential
+
+## Specifications
+| Behavior        | Input           | Outcome  |
+| ------------- |:-------------:| -----:|
+| Create an account | User Account Name : John <br/> Password : doe | An account is created |
+| Log into an account | User Account Name : John <br/> Password : doe | Log into the users account |
+| Enter existing log in credential | Account : Githib <br/> Password : doe1 | Create and save the user's credentials | 
+| Display a specific users credentials | N/A | List of the user's credentials | 
+| Generate a password for a new credential | Account : Password Locker | Generate a password for the user. <br/> Create and save the user's credential with the generated password | 
+
+## Prerequisites
+* Python3.6
 
 ## Setup/Installation Requirements
-* Clone this repository and run the `run.py` file
+* Clone [this repository](https://github.com/carolwanjohi/password-locker.git) and run the `run.py` file.
 
 ## Known Bugs
 
 No known bugs
 
 ## Technologies Used
-- Python
+- Python3.6
 
 ### License
 
