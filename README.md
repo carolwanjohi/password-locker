@@ -35,7 +35,7 @@ As a user I would like:
 * Python3.6
 
 ## Setup/Installation Requirements
-* Clone [this repository](https://github.com/carolwanjohi/password-locker.git) and run the `run.py` file.
+* Clone [this repository](https://github.com/carolwanjohi/password-locker.git) and run the `.\run.py` file.
 
 ## Known Bugs
 
